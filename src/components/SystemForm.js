@@ -5,7 +5,7 @@ export default class SystemForm extends React.Component {
   render() {
     return (
       <div>
-        <form className="sys-form">
+        <form onSubmit={this.props.systemOutput} className="sys-form">
         <label>
           System Capacity
           <div>
@@ -29,7 +29,7 @@ export default class SystemForm extends React.Component {
         <label>
           Tilt
           <div>
-          <input id="tilt" value={this.props.tilt} type="number"onChange={this.props.handleChange} />
+          <input id="tilt" value={this.props.tilt} type="number" onChange={this.props.handleChange} />
           °
           </div>
         </label>
@@ -43,17 +43,17 @@ export default class SystemForm extends React.Component {
         <label>
           Address
           <div>
-          <textArea rows="4" id="address" value={this.props.address} type="text"onChange={this.props.handleChange}></textArea>
+          <textArea id="address" value={this.props.address} type="text" onChange={this.props.handleChange}/>
           </div>
         </label>
         <label>
           Efficiency of Inverter
           <div>
-          <input id="inv_eff" value={this.props.inv_eff} type="number"onChange={this.props.handleChange} />
+          <input id="inv_eff" value={this.props.inv_eff} type="number" onChange={this.props.handleChange} />
           %
           </div>
         </label>
-
+        <button type="submit">Monthly Output</button>
         </form>
       </div>
     )
