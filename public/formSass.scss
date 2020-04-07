@@ -1,18 +1,18 @@
+// * {
+//   border: 1px solid gold;
+// }
 .ecc-total {
   display: flex;
   justify-content: space-around;
 }
-
 #total-btn {
   border-radius: 5px;
 }
-
 .e-consumption-calc, .sys-form {
   text-align: center;
   width: 350px;
   margin: auto;
 }
-
 .e-consumption-calc span {
   font-size: 30px;
 }
@@ -23,13 +23,10 @@
   padding-left: 10px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #6eff8e;
-  border-left: 1px solid #6eff8e;
+  border-bottom: 1px solid rgb(110, 255, 142);
+  border-left: 1px solid rgb(110, 255, 142);
 }
-
 .e-consumption-calc input {
   margin-bottom: 10px;
   width: 100px;
 }
-
-/*# sourceMappingURL=index.css.map */
