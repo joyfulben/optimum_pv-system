@@ -14,7 +14,7 @@ export default class EnergyOutputs extends React.Component{
   }
 
   saveOutputs = async (output) => {
-    let response = await Axios.post('http://localhost:3000/site_outputs', output)
+    let response = await Axios.post('https://pv-system-backend.herokuapp.com/site_outputs', output)
   }
 
   render() {

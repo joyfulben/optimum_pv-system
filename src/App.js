@@ -31,7 +31,7 @@ export default class App extends React.Component {
     this.setState({ username: username})
   }
   getUserInfo = async () => {
-    let response = await fetch(`http://localhost:3000/users/${this.state.userId}`, {
+    let response = await fetch(`https://pv-system-backend.herokuapp.com/users/${this.state.userId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',

@@ -4,7 +4,7 @@ import React from 'react'
 export default class MyOutputs extends React.Component {
 
   delete = async (id) => {
-    let response = await fetch(`http://localhost:3000/site_outputs/${id}`, {
+    let response = await fetch(`https://pv-system-backend.herokuapp.com/site_outputs/${id}`, {
       method: 'DELETE'
     })
     this.props.handleUpdate(id)
