@@ -5,6 +5,8 @@
 .user-forms {
   display: flex;
   align-items: center;
+  height: 60px;
+  background-image: url('pv_panels.jpeg');
 }
 .new-btn {
   width: 100px;
@@ -24,6 +26,7 @@ header div {
   margin-top: 50px;
   padding: 20px 0;
   width: 100%;
+  font-size: 20px;
   transition: 1s;
   color: rgb(0, 116, 1);
 }

@@ -21,7 +21,7 @@ export default class EnergyOutputs extends React.Component{
     console.log(this.props.output)
     return (
       <div className="output-tables">
-      <table cellpadding="7">
+      <table cellpadding="5">
         <thead>
           <tr>
             <th colSpan="1">Month</th>
@@ -43,7 +43,7 @@ export default class EnergyOutputs extends React.Component{
         )
         })}
       </table>
-      <table cellpadding="7">
+      <table cellpadding="5">
         <thead>
           <tr>
             <th colspan="1">AC Output (kWh)</th>
