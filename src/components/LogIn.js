@@ -15,6 +15,7 @@ export default class LogIn extends React.Component {
     this.authorization(this.state)
   }
   authorization = async (userInfo) => {
+    console.log(userInfo)
     let response = await Axios.post('https://pv-system-backend.herokuapp.com/users/login', userInfo)
     console.log(response)
     if (response.data.token) {
