@@ -43,7 +43,7 @@ export default class EnergyOutputs extends React.Component{
         )
         })}
       </table>
-      <table>
+      <table cellpadding="10">
         <thead>
           <tr>
             <th colspan="1">AC Output (kWh)</th>
