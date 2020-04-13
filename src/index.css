@@ -7,7 +7,7 @@
   align-items: center;
   height: 60px;
   background-image: url('./pv_panels.jpeg');
-  background-size: 100% 30%;
+  background-size: 200vw 200px;
 }
 .new-btn {
   width: 100px;
