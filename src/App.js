@@ -6,6 +6,7 @@ import NewUser from './components/NewUser'
 import LogIn from './components/LogIn'
 import MyOutputs from './components/MyOutputs'
 
+
 export default class App extends React.Component {
   constructor() {
     super()
@@ -56,7 +57,7 @@ export default class App extends React.Component {
     return (
 
       <Router>
-        <div className="user-forms">
+        <div className="d-flex justify-content-around user-forms">
         {
           this.state.showNew ?
             <NewUser
