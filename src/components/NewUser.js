@@ -14,7 +14,7 @@ export default class NewUser extends React.Component {
     this.handleNewUser(this.state)
   }
   handleNewUser = async (newUser) => {
-    let response = await Axios.post('http://localhost:3000/users', newUser)
+    let response = await Axios.post('https://pv-system-backend.herokuapp.com/users', newUser)
     this.props.funcShowNew()
     console.log(response)
 
