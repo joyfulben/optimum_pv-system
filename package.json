@@ -1,7 +1,7 @@
 {
   "name": "optimal_pv_system",
   "version": "0.1.0",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://dashboard.heroku.com/apps/pv-system-backend",
   "scripts": {
     "deploy": "npm run build",
     "start": "react-scripts start",
