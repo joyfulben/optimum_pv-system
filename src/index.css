@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   height: 60px;
-  background-image: url('../pv_panels.jpeg');
+  background-image: url('./pv_panels.jpeg');
 }
 .new-btn {
   width: 100px;
