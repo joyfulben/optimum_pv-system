@@ -64,7 +64,7 @@ export default class App extends React.Component {
             showNew={this.state.showNew}
             funcShowNew={this.showNew}
             />
-          : <button className="new-btn btn btn-outline-warning" onClick={this.showNew}>Sign Up</button>
+          : <button className="new-btn btn btn-warning" onClick={this.showNew}>Sign Up</button>
         }
 
         { this.state.username ?
@@ -74,7 +74,7 @@ export default class App extends React.Component {
           </>
           :
           <div>
-          <a href="/login"><button>Log In</button></a>
+          <a href="/login"><button className="btn btn-info">Log In</button></a>
           <Route exact path="/login" component=
             {() => (<LogIn
               updateToken={this.updateToken}

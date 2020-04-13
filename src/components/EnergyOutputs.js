@@ -61,7 +61,7 @@ export default class EnergyOutputs extends React.Component{
         )
         })}
       </table>
-      <button onClick={this.collectOutputs}>Save Outputs</button>
+      <button className="btn btn-outline-dark" onClick={this.collectOutputs}>Save Outputs</button>
       </div>
     )
   }

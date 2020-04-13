@@ -7,8 +7,8 @@
   align-items: center;
   height: 60px;
   background-image: url('./pv_panels.jpeg');
-  background-size: 100vw 400px;
-  background-position: right;
+  background-size: 100vw 300px;
+  background-position: right;s
 }
 .new-btn {
   width: 100px;
@@ -58,6 +58,7 @@ span {
 }
 .output-tables {
   display: flex;
+  flex-direction: column;
 }
 
 table {
