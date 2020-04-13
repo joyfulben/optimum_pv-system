@@ -58,13 +58,11 @@ table {
   text-align: center;
   background-color: rgba(215, 215, 215, 0.29);
 }
-tr {
-  margin: 3px;
-  border-left-color: rgb(98, 195, 0);
-}
+
 td {
   border-bottom: 2px solid rgba(13, 79, 0, 0.43);
-  margin: 2px;
+  margin: 5px;
+  border-left-color: rgb(98, 195, 0);
 }
 
 .ecc-total {
