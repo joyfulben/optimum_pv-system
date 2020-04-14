@@ -20,7 +20,22 @@ export default class SystemForm extends React.Component {
       address: '',
       inv_eff: 96,
       output: [],
-      isPopoverOpen: false
+      tooltip: {
+        sys_cap: 'This is the sum total wattage capacity of the solar panel array',
+        panel_type:
+          {
+            a: '0 = PolyCrystaline',
+            b: '1 = MonoCrystaline',
+            c: '2 = Thin Film'
+          },
+        loss: 'This is system loss related to "electrical friction" from wire size',
+        tilt: 'Angle between 0 and 90 that pivots on the z axis towards the sun',
+        azimuth: 'Angle between 0 and 359 that pivots east to west. 180 is geographic south',
+        address: 'Example: Boulder Colorado (Must be place in USA)',
+        eff_inv: 'Efficiency percentage of DC to AC converter'
+
+
+      }
     }
   }
   showOutputs = () => {
@@ -51,15 +66,7 @@ export default class SystemForm extends React.Component {
             System Capacity
 
             <div>
-            <Popover
-              isOpen={this.state.isPopoverOpen}
-              position={'left'}
-              content={(
-                <div className="sys-info">This is the capacity of your system</div>
-              )}
-              >
-            <span onClick={() => this.setState ({ isPopoverOpen: !this.state.isPopoverOpen})}>?</span>
-            </Popover>
+            <PopoverComp tooltip={this.state.tooltip.sys_cap}/>
             <input onChange={this.handleChange} id="systemCapacity" value={this.state.systemCapacity} type="number"  />
             kW
             </div>
@@ -67,21 +74,14 @@ export default class SystemForm extends React.Component {
           <label>
             Solar Panel Type
             <div>
-            <Popover
-              isOpen={this.state.isPopoverOpen}
-              position={'left'}
-              content={(
-                <div className="sys-info">0 = PolyCrystaline <br/>1 = MonoCrystaline <br/> 2 = Thin Film</div>
-              )}
-              >
-            <span onClick={() => this.setState ({ isPopoverOpen: !this.state.isPopoverOpen})}>?</span>
-            </Popover>
+            <PopoverComp tooltip={this.state.tooltip.panel_type} />
             <input id="moduleType" value={this.state.moduleType} type="number"onChange={this.handleChange} />
             </div>
           </label>
           <label>
             System Loss
             <div>
+            <PopoverComp tooltip={this.state.tooltip.loss}/>
             <input id="loss" value={this.state.loss} type="number" onChange={this.handleChange} />
             %
             </div>
@@ -89,6 +89,7 @@ export default class SystemForm extends React.Component {
           <label>
             Tilt
             <div>
+            <PopoverComp tooltip={this.state.tooltip.tilt}/>
             <input id="tilt" value={this.state.tilt} type="number" onChange={this.handleChange} />
             °
             </div>
@@ -96,6 +97,7 @@ export default class SystemForm extends React.Component {
           <label>
             Azimuth
             <div>
+            <PopoverComp tooltip={this.state.tooltip.}/>
             <input id="azimuth" value={this.state.azimuth} type="number" onChange={this.handleChange} />
             °
             </div>
@@ -103,12 +105,14 @@ export default class SystemForm extends React.Component {
           <label>
             Address
             <div>
+            <PopoverComp tooltip={this.state.tooltip.address}/>
             <textarea id="address" value={this.state.address}  type="text" onChange={this.handleChange} required/>
             </div>
           </label>
           <label>
             Efficiency of Inverter
             <div>
+            <PopoverComp tooltip={this.state.tooltip.eff_inv}/>
             <input id="inv_eff" value={this.state.inv_eff} type="number" onChange={this.handleChange} />
             %
             </div>
