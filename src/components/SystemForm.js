@@ -55,7 +55,7 @@ export default class SystemForm extends React.Component {
               isOpen={this.state.isPopoverOpen}
               position={'left'}
               content={(
-                <div>This is the capacity of your system</div>
+                <div className="sys-info">This is the capacity of your system</div>
               )}
               >
             <span onClick={() => this.setState ({ isPopoverOpen: !this.state.isPopoverOpen})}>?</span>
@@ -67,6 +67,15 @@ export default class SystemForm extends React.Component {
           <label>
             Solar Panel Type
             <div>
+            <Popover
+              isOpen={this.state.isPopoverOpen}
+              position={'left'}
+              content={(
+                <div className="sys-info">0 = PolyCrystaline <br/>1 = MonoCrystaline <br/> 2 = Thin Film</div>
+              )}
+              >
+            <span onClick={() => this.setState ({ isPopoverOpen: !this.state.isPopoverOpen})}>?</span>
+            </Popover>
             <input id="moduleType" value={this.state.moduleType} type="number"onChange={this.handleChange} />
             </div>
           </label>

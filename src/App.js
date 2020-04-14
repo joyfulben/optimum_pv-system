@@ -69,8 +69,8 @@ export default class App extends React.Component {
 
         { this.state.username ?
           <>
-          <p>Welcome {this.state.username}</p>
-          <Link to='/my_output'><button onClick={this.getUserInfo}>{this.state.username}</button></Link>
+          <p className="alert alert-success">Welcome {this.state.username}</p>
+          <Link to='/my_output'><button className="btn btn-info" onClick={this.getUserInfo}>{this.state.username}</button></Link>
           </>
           :
           <div>
