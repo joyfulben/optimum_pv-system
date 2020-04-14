@@ -74,8 +74,10 @@ span {
 }
 
 table {
+  border-collapse: collapse;
+  border-spacing: 0;
   text-align: center;
-  background-color: rgba(215, 215, 215, 0.29);
+  background-color: rgba(255, 231, 148, 0.09);
 }
 tbody {
   margin: 5px;
@@ -87,6 +89,7 @@ thead tr {
 tr td {
   border-bottom: 2px solid rgba(13, 79, 0, 0.43);
   border-left: 2px solid rgb(98, 195, 0);
+  border-right: 2px solid rgb(98, 195, 0);
 }
 
 
