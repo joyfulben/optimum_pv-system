@@ -10,10 +10,7 @@
   background-size: 100vw 300px;
   background-position: right;s
 }
-.new-btn {
-  width: 100px;
-  height: 40px;
-}
+
 /************** navigation sidebar *************/
 header {
   display: flex;
