@@ -94,7 +94,7 @@ export default class App extends React.Component {
         </header>
 
           <div className='components'>
-          <Home />
+          <Route exact path='/' component={Home} />
           { this.state.userInfo[0] ?
             <>
               <Route exact path='/my_output' component= {() => (<MyOutputs userInfo={this.state.userInfo[0]} username={this.state.username}

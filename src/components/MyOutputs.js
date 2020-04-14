@@ -14,7 +14,7 @@ export default class MyOutputs extends React.Component {
 
     return (
       <div>
-      <table>
+      <table cellpadding="5">
         <thead>
           <tr>
             <th>Location</th>
