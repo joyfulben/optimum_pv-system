@@ -64,7 +64,7 @@ export default class App extends React.Component {
             showNew={this.state.showNew}
             funcShowNew={this.showNew}
             />
-          : <button className="new-btn btn btn-warning" onClick={this.showNew}>Sign Up</button>
+          : <button className="btn btn-warning" onClick={this.showNew}>Sign Up</button>
         }
 
         { this.state.username ?
