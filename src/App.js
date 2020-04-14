@@ -5,6 +5,7 @@ import SystemForm from './components/SystemForm'
 import NewUser from './components/NewUser'
 import LogIn from './components/LogIn'
 import MyOutputs from './components/MyOutputs'
+import Home from './components/Home'
 
 
 export default class App extends React.Component {
@@ -70,7 +71,7 @@ export default class App extends React.Component {
         { this.state.username ?
           <>
           <p className="alert alert-success">Welcome {this.state.username}</p>
-          <Link to='/my_output'><button className="btn btn-info" onClick={this.getUserInfo}>{this.state.username}</button></Link>
+          <Link to='/my_output'><button className="btn btn-info" onClick={this.getUserInfo}>{this.state.username}'s Outputs</button></Link>
           </>
           :
           <div>
@@ -93,7 +94,7 @@ export default class App extends React.Component {
         </header>
 
           <div className='components'>
-
+          <Home />
           { this.state.userInfo[0] ?
             <>
               <Route exact path='/my_output' component= {() => (<MyOutputs userInfo={this.state.userInfo[0]} username={this.state.username}
