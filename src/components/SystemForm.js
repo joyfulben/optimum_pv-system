@@ -97,7 +97,7 @@ export default class SystemForm extends React.Component {
           <label>
             Azimuth
             <div>
-            <PopoverComp tooltip={this.state.tooltip.}/>
+            <PopoverComp tooltip={this.state.tooltip.azimuth}/>
             <input id="azimuth" value={this.state.azimuth} type="number" onChange={this.handleChange} />
             °
             </div>
