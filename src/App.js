@@ -85,7 +85,7 @@ export default class App extends React.Component {
           </div>
         }
         </div>
-        <div className="d-flex flex-column">
+        <div className="d-flex">
         <header>
               <Link to='/'><div className="link">Home</div></Link>
               <Link to='/system_output'><div className="link2">System Yield</div></Link>
