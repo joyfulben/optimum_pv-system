@@ -18,7 +18,6 @@ export default class EnergyOutputs extends React.Component{
   }
 
   render() {
-    console.log(this.props.output)
     return (
       <div className="output-tables">
       <table cellpadding="5">
