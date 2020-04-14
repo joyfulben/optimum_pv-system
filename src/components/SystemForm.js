@@ -1,7 +1,7 @@
 
 import React from 'react';
 import EnergyOutputs from './EnergyOutputs'
-import Popover, { ArrowContainer } from 'react-tiny-popover'
+import PopoverComp from './PopoverComp'
 
 const button = document.querySelector('#button');
 const tooltip = document.querySelector('.tooltip')
