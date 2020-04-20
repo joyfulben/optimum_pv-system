@@ -6,8 +6,13 @@ import NewUser from './components/NewUser'
 import LogIn from './components/LogIn'
 import MyOutputs from './components/MyOutputs'
 import Home from './components/Home'
+let baseURL= ''
 
-
+if (process.env.NODE_ENV === 'development') {
+  baseURL = 'http://localhost:3000'
+} else {
+  baseURL = 'https://pv-system-backend.herokuapp.com'
+}
 export default class App extends React.Component {
   constructor() {
     super()
@@ -33,7 +38,7 @@ export default class App extends React.Component {
     this.setState({ username: username})
   }
   getUserInfo = async () => {
-    let response = await fetch(`https://pv-system-backend.herokuapp.com/users/${this.state.userId}`, {
+    let response = await fetch(`${baseURL}/users/${this.state.userId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -64,6 +69,7 @@ export default class App extends React.Component {
             <NewUser
             showNew={this.state.showNew}
             funcShowNew={this.showNew}
+            baseURL={baseURL}
             />
           : <button className="btn btn-warning" onClick={this.showNew}>Sign Up</button>
         }
@@ -81,6 +87,7 @@ export default class App extends React.Component {
               updateToken={this.updateToken}
               welcomeUser={this.welcomeUser}
               updateUserId={this.updateUserId}
+              baseURL={baseURL}
             />) }
           />
           </div>
@@ -99,12 +106,18 @@ export default class App extends React.Component {
             <>
               <Route exact path='/my_output' component= {() => (<MyOutputs userInfo={this.state.userInfo[0]} username={this.state.username}
               handleUpdate={this.handleUpdate}
+              baseURL={baseURL}
               />)}
               />
             </>
           : null
           }
-            <Route exact path='/system_output' component= {() => (<SystemForm userId={this.state.userId}/>)} />
+            <Route exact path='/system_output' component= {() => (<SystemForm
+              userId={this.state.userId}
+              token={this.state.token}
+              baseURL={baseURL}
+              getUserInfo={this.getUserInfo}
+            />)} />
             <Route exact path='/e_use_calc' component= {Appliances} />
           </div>
           </div>

@@ -22,15 +22,12 @@ export default class SystemForm extends React.Component {
       output: [],
       tooltip: {
         sys_cap: 'This is the sum total wattage capacity of the solar panel array',
-        panel_type: <div>0 = PolyCrystaline<br/>1 = MonoCrystaline<br/>2 = Thin Film</div>
-          ,
+        panel_type: <div>0 = PolyCrystaline<br/>1 = MonoCrystaline<br/>2 = Thin Film</div>,
         loss: 'This is system loss related to "electrical friction" from wire size',
         tilt: 'Angle between 0 and 90 that pivots on the z axis towards the sun',
         azimuth: 'Angle between 0 and 359 that pivots east to west. 180 is geographic south',
         address: 'Example: Boulder Colorado (Must be place in USA)',
         eff_inv: 'Efficiency percentage of DC to AC converter'
-
-
       }
     }
   }
@@ -128,7 +125,9 @@ export default class SystemForm extends React.Component {
         inv_eff={this.state.inv_eff}
         output={this.state.output}
         userId={this.props.userId}
-
+        baseURL={this.props.baseURL}
+        token={this.props.token}
+        getUserInfo={this.props.getUserInfo}
         />
         : null
         }

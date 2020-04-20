@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default class App extends React.Component {
-  render() {
+  function Home() {
+    const [isShown, setIsShown] = useState(false);
+
     return (
       <div>
-        <a href="https://www.energy.gov/energysaver/planning-home-solar-electric-system"><img src="/PV_system_diagram.jpeg" alt="" /></a>
-        <div>
-        <h6>The link above brings you to a site that helps you plan a residential, solar-electric system provided by energy.gov </h6>
+        <div className="energy-dotgov">
+            <a
+            onMouseEnter={() => setIsShown(true)}
+            onMouseLeave={() => setIsShown(false)}
+            href="https://www.energy.gov/energysaver/planning-home-solar-electric-system"><div className="pv-system-diagram">{isShown && (
+              <h6 className="energy-dotgov-text">Plan a residential, solar-electric system on energy.gov </h6>
+            )}</div></a>
+
+
         </div>
       </div>
     )
   }
-}
+
+export default Home;
