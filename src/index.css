@@ -2,15 +2,39 @@
   display: flex;
   flex-direction: column;
 }
-.user-forms {
-  display: flex;
-  align-items: center;
-  height: 100px;
+.login-signup {
   background-image: url('./pv_panels.jpeg');
-  background-size: 100vw 300px;
+  background-size: 100vw 400px;
   background-position: right;
 }
-
+.user-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+}
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.welcome p {
+  margin: 20px 10px;
+}
+.welcome button {
+  margin: 20px 10px;
+}
+.sign-up-btn {
+  margin:5px 0 0 80vw;
+  width: 120px;
+  text-align: center;
+}
+.log-in-btn {
+  margin:5px 0 0 80vw;
+  width: 120px;
+  text-align: center;
+}
 
 header {
   display: flex;
@@ -67,10 +91,17 @@ header a:hover {
 .sys-cap {
   display: flex;
   justify-content: center;
-}
 
+}
+.sys-cap input {
+  width: 60px;
+}
+.sys-cap form {
+  display: flex;
+  flex-direction: column;
+}
 .sys-info {
-  width: 300px;
+  width: 200px;
   background-color: rgba(0, 238, 52, 0.07);
   border-radius: 10px;
   border: 3px solid rgb(0, 119, 40);
@@ -79,8 +110,12 @@ header a:hover {
   font-size: 12px;
   text-align: center;
 }
+.panel-options {
+  width: 100px;
+  margin: auto;
+}
 
-span {
+.sys-cap span {
   background-color: rgb(121, 249, 164);
   margin-right: 10px;
   padding: 5px;

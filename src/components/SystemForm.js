@@ -23,10 +23,10 @@ export default class SystemForm extends React.Component {
       tooltip: {
         sys_cap: 'This is the sum total wattage capacity of the solar panel array',
         panel_type: <div>0 = PolyCrystaline<br/>1 = MonoCrystaline<br/>2 = Thin Film</div>,
-        loss: 'This is system loss related to "electrical friction" from wire size',
+        loss: 'This is system loss related to "electrical friction" from wire diameter',
         tilt: 'Angle between 0 and 90 that pivots on the z axis towards the sun',
         azimuth: 'Angle between 0 and 359 that pivots east to west. 180 is geographic south',
-        address: 'Example: Boulder Colorado (Must be place in USA)',
+        address: 'Example: Boulder Colorado (Must be location in USA)',
         eff_inv: 'Efficiency percentage of DC to AC converter'
       }
     }
@@ -53,7 +53,7 @@ export default class SystemForm extends React.Component {
 
       <div className="sys-cap">
 
-        <div>
+        <div >
           <form onSubmit={this.systemOutput} className="sys-form">
           <label>
             System Capacity
@@ -64,13 +64,19 @@ export default class SystemForm extends React.Component {
             kW
             </div>
           </label>
-          <label>
-            Solar Panel Type
-            <div>
+
+          <div className="form-group d-flex justify-content-center flex-column">
+            <label>Solar Panel Type</label>
+            <div className="d-flex panel-options">
             <PopoverComp tooltip={this.state.tooltip.panel_type} />
-            <input id="moduleType" value={this.state.moduleType} type="number"onChange={this.handleChange} />
+            <select className="form-control d-flex justify-content-between" id="moduleType" value={this.state.moduleType} onChange={this.handleChange}>
+              <option>{Number("0")}</option>
+              <option>{Number("1")}</option>
+              <option>{Number("2")}</option>
+            </select>
             </div>
-          </label>
+          </div>
+
           <label>
             System Loss
             <div>

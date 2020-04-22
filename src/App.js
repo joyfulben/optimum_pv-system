@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react'
+import { useHistory } from  'react-router-dom'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Appliances from './components/Appliances'
 import SystemForm from './components/SystemForm'
@@ -13,43 +14,46 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   baseURL = 'https://pv-system-backend.herokuapp.com'
 }
-export default class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      showNew: false,
-      showLogIn: false,
-      token: '',
-      username: '',
-      userId: 0,
-      userInfo: []
-    }
+
+function App() {
+
+    const [showNew, setShowNew]= useState(false);
+    const [showLogIn, setShowLogin]= useState(false);
+    const [token, setToken]= useState('');
+    const [username, setUsername]= useState('');
+    const [userId, setUserId]= useState(0);
+    const [userInfo, setUserInfo]= useState([]);
+
+
+  const showNewFunc = () => {
+    setShowNew(!showNew)
+    return
   }
-  showNew = () => {
-    this.setState({ showNew: !this.state.showNew})
+  const updateToken = (token) => {
+    setToken(token)
+    return
   }
-  updateToken = (token) => {
-    this.setState({ token: token })
+  const updateUserId = (id) => {
+    setUserId(id)
+    return
   }
-  updateUserId = (id) => {
-    this.setState({ userId: id})
+  const welcomeUser = (username) => {
+    setUsername(username)
+    return
   }
-  welcomeUser = (username) => {
-    this.setState({ username: username})
-  }
-  getUserInfo = async () => {
-    let response = await fetch(`${baseURL}/users/${this.state.userId}`, {
+  const getUserInfo = async () => {
+    let response = await fetch(`${baseURL}/users/${userId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json, application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${this.state.token}`
+        'Authorization': `Bearer ${token}`
       }
     })
     const userStats = await response.json()
-    this.setState({ userInfo: [userStats.site_outputs, ...this.state.userInfo ]})
+    setUserInfo([ userStats.site_outputs, ...userInfo ])
   }
-  handleUpdate = (id) => {
+  const handleUpdate = (id) => {
     const userInfo = this.state.userInfo[0].filter(output => output.id !== id)
     this.state.userInfo.pop()
     console.log(userInfo)
@@ -59,37 +63,20 @@ export default class App extends React.Component {
 
     console.log(this.state.userInfo)
   }
-  render() {
     return (
 
       <Router>
-        <div className="d-flex justify-content-around user-forms">
+        <div className="login-signup">
         {
-          this.state.showNew ?
-            <NewUser
-            showNew={this.state.showNew}
-            funcShowNew={this.showNew}
-            baseURL={baseURL}
-            />
-          : <button className="btn btn-warning" onClick={this.showNew}>Sign Up</button>
-        }
-
-        { this.state.username ?
-          <>
-          <p className="alert alert-success">Welcome {this.state.username}</p>
-          <Link to='/my_output'><button className="btn btn-info" onClick={this.getUserInfo}>{this.state.username}'s Outputs</button></Link>
-          </>
+          username ?
+          <div className="welcome">
+          <p className="alert alert-success">Welcome {username}</p>
+          <Link to='/my_output'><button className="btn btn-info" onClick={getUserInfo}>{username}'s Outputs</button></Link>
+          </div>
           :
-          <div>
-          <a href="/login"><button className="btn btn-info">Log In</button></a>
-          <Route exact path="/login" component=
-            {() => (<LogIn
-              updateToken={this.updateToken}
-              welcomeUser={this.welcomeUser}
-              updateUserId={this.updateUserId}
-              baseURL={baseURL}
-            />) }
-          />
+          <div className="user-forms">
+            <a href="/login"><button className="btn btn-info log-in-btn">Log In</button></a>
+            <a href="/sign_up"><button className="btn btn-warning sign-up-btn" onClick={showNewFunc}><span>Sign Up</span></button></a>
           </div>
         }
         </div>
@@ -101,29 +88,47 @@ export default class App extends React.Component {
         </header>
 
           <div className='components'>
-          <Route exact path='/' component={Home} />
-          { this.state.userInfo[0] ?
-            <>
-              <Route exact path='/my_output' component= {() => (<MyOutputs userInfo={this.state.userInfo[0]} username={this.state.username}
-              handleUpdate={this.handleUpdate}
+          <Route exact path='/sign_up' component={() => (
+            <NewUser
+            showNew={showNew}
+            funcShowNew={showNewFunc}
+            baseURL={baseURL}
+            />
+          )} />
+          <Route exact path='/login' component={() => (
+            <LogIn
               baseURL={baseURL}
-              />)}
+              updateToken={updateToken}
+              updateUserId={updateUserId}
+              welcomeUser={welcomeUser}
+            />
+          )} />
+          <Route exact path='/' component={Home} />
+          { userInfo[0] ?
+            <>
+              <Route exact path='/my_output' component= {() => (
+                <MyOutputs
+                userInfo={userInfo[0]}
+                username={username}
+                handleUpdate={handleUpdate}
+                baseURL={baseURL}
+                /> )}
               />
             </>
           : null
           }
             <Route exact path='/system_output' component= {() => (<SystemForm
-              userId={this.state.userId}
-              token={this.state.token}
+              userId={userId}
+              token={token}
               baseURL={baseURL}
-              getUserInfo={this.getUserInfo}
+              getUserInfo={getUserInfo}
             />)} />
             <Route exact path='/e_use_calc' component= {Appliances} />
           </div>
-          </div>
-        </Router>
+        </div>
+      </Router>
 
     )
-  }
-
 }
+
+export default App;

@@ -1,54 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from  'react-router-dom'
 import Axios from 'axios'
 
 
-export default class LogIn extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      username: '',
-      password: ''
-    }
-  }
-  handleSubmit = (e) => {
+function LogIn(props) {
+
+  const history = useHistory()
+  const [username, setUsername]= useState('')
+  const [password, setPassword]= useState('')
+
+  const handleSubmit = (e) => {
     e.preventDefault()
-    this.authorization(this.state)
+    authorization(username, password)
   }
-  authorization = async (userInfo) => {
-    console.log(userInfo)
-    let response = await Axios.post(`${this.props.baseURL}/users/login`, userInfo)
+  const authorization = async (username, password) => {
+    console.log(username, password)
+    let response = await Axios.post(`${props.baseURL}/users/login`, {username, password})
     console.log(response)
     if (response.data.token) {
-      this.props.updateToken(response.data.token)
-      this.props.welcomeUser(response.data.user.username)
-      this.props.updateUserId(response.data.user.id)
+      props.updateToken(response.data.token)
+      props.welcomeUser(response.data.user.username)
+      props.updateUserId(response.data.user.id)
+      history.push('/my_output')
     }
+    return
+  }
+  const handleNameChange = (event) => {
+    setUsername(event.target.value)
+  }
+  const handlePWChange = (event) => {
+    setPassword(event.target.value)
   }
 
-
-
-  handleChange = (event) => {
-    this.setState({ [event.target.id]: event.target.value})
-  }
-  render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label>
             Username
             <div>
-            <input onChange={this.handleChange} id="username" type="text"  />
+            <input onChange={handleNameChange} id="username" type="text"  />
             </div>
           </label>
           <label>
             Password
             <div>
-            <input onChange={this.handleChange} id="password"  type="password" />
+            <input onChange={handlePWChange} id="password"  type="password" />
             </div>
           </label>
           <button type="submit">Log In</button>
         </form>
       </div>
     )
-  }
 }
+export default LogIn;
