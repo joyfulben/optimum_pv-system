@@ -2,10 +2,30 @@
   display: flex;
   flex-direction: column;
 }
+/* sun logo rotation animation */
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.sun-logo {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  background-image: url('./sunlogo.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: rotation 30s infinite;
+}
 .login-signup {
   background-image: url('./pv_panels.jpeg');
   background-size: 100vw 400px;
   background-position: right;
+  display: flex;
+  justify-content: space-between;
 }
 .user-forms {
   display: flex;
@@ -26,12 +46,30 @@
   margin: 20px 10px;
 }
 .sign-up-btn {
-  margin:5px 0 0 80vw;
+  margin:10px 10px 0 0;
   width: 120px;
   text-align: center;
 }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgba(78, 255, 78, 0.3);
+  border: 2px solid rgb(93, 130, 153);
+  border-radius: 10px;
+  margin-left: 40px;
+  width: 300px;
+  color: rgb(7, 73, 9);
+}
+.login-form button {
+  width: 150px;
+  margin: 10px auto;
+}
+.login-form input {
+  background-color: rgb(255, 253, 15);
+}
 .log-in-btn {
-  margin:5px 0 0 80vw;
+  margin:10px 10px 0 0;
   width: 120px;
   text-align: center;
 }
@@ -96,7 +134,7 @@ header a:hover {
 .sys-cap input {
   width: 60px;
 }
-.sys-cap form {
+.sys-form {
   display: flex;
   flex-direction: column;
 }
@@ -109,6 +147,10 @@ header a:hover {
   margin: auto;
   font-size: 12px;
   text-align: center;
+}
+.sys-btn {
+  width: 200px;
+  margin: 10px auto;
 }
 .panel-options {
   width: 100px;
@@ -145,6 +187,9 @@ tr td {
   border-bottom: 2px solid rgba(13, 79, 0, 0.43);
   border-left: 2px solid rgb(98, 195, 0);
   border-right: 2px solid rgb(98, 195, 0);
+}
+.save-output-btn {
+  width: 110px;
 }
 .saved-outputs {
   display: flex;

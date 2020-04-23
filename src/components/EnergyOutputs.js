@@ -50,7 +50,7 @@ export default function EnergyOutputs(props) {
                     <td>
                       <h6>{acOutputs[i]}</h6>
                     </td>
-                    <button className="btn btn-outline-dark" onClick={() => collectOutputs(i)}>Save Month</button>
+                    <button className="btn btn-outline-dark save-output-btn" onClick={() => collectOutputs(i)}>Save Month</button>
                   </tr>
                 </>
               )

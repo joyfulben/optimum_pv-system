@@ -33,8 +33,8 @@ function LogIn(props) {
   }
 
     return (
-      <div>
-        <form onSubmit={handleSubmit}>
+      <div className="login">
+        <form className="login-form" onSubmit={handleSubmit}>
           <label>
             Username
             <div>
@@ -47,7 +47,7 @@ function LogIn(props) {
             <input onChange={handlePWChange} id="password"  type="password" />
             </div>
           </label>
-          <button type="submit">Log In</button>
+          <button className="btn btn-success" type="submit">Log In</button>
         </form>
       </div>
     )

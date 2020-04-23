@@ -66,7 +66,9 @@ function App() {
     return (
 
       <Router>
+
         <div className="login-signup">
+
         {
           username ?
           <div className="welcome">
@@ -79,6 +81,7 @@ function App() {
             <a href="/sign_up"><button className="btn btn-warning sign-up-btn" onClick={showNewFunc}><span>Sign Up</span></button></a>
           </div>
         }
+        <div className="sun-logo"></div>
         </div>
         <div className="d-flex">
         <header>

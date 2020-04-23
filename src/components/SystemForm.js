@@ -116,7 +116,7 @@ export default class SystemForm extends React.Component {
             %
             </div>
           </label>
-          <button className="btn btn-outline-success" type="submit">Monthly Output</button>
+          <button className="btn btn-outline-success sys-btn" type="submit">Monthly Output</button>
           </form>
         </div>
         <div>
