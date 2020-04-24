@@ -25,7 +25,7 @@ export default class NewUser extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit }>
+        <form className="signup-form" onSubmit={this.handleSubmit }>
         <label>
           Username
           <div>
@@ -38,7 +38,7 @@ export default class NewUser extends React.Component {
           <input onChange={this.handleChange} id="password"  type="password"  />
           </div>
         </label>
-        <button type="submit">Add me</button>
+        <button className="btn btn-outline-secondary" type="submit">Add me</button>
         </form>
       </div>
     )

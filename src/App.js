@@ -17,13 +17,12 @@ if (process.env.NODE_ENV === 'development') {
 
 function App() {
 
-    const [showNew, setShowNew]= useState(false);
-    const [showLogIn, setShowLogin]= useState(false);
-    const [token, setToken]= useState('');
-    const [username, setUsername]= useState('');
-    const [userId, setUserId]= useState(0);
-    const [userInfo, setUserInfo]= useState([]);
-
+  const [showNew, setShowNew]= useState(false);
+  const [showLogIn, setShowLogin]= useState(false);
+  const [token, setToken]= useState('');
+  const [username, setUsername]= useState('');
+  const [userId, setUserId]= useState(0);
+  const [userInfo, setUserInfo]= useState([]);
 
   const showNewFunc = () => {
     setShowNew(!showNew)
@@ -56,24 +55,27 @@ function App() {
   const handleUpdate = (id) => {
     const userInfo = this.state.userInfo[0].filter(output => output.id !== id)
     this.state.userInfo.pop()
-    console.log(userInfo)
     this.setState({
         userInfo: [userInfo, ...this.state.userInfo]
     })
-
-    console.log(this.state.userInfo)
   }
+  
     return (
-
       <Router>
-
+      <h2>Solar System <img src="favicon.ico" alt="sun animation"/>ptimizer</h2>
+{
+ //  _   _                _             _   _
+ // | | | | ___  __ _  __| | ___ _ __  | \ | | __ ___   __
+ // | |_| |/ _ \/ _` |/ _` |/ _ \ '__| |  \| |/ _` \ \ / /
+ // |  _  |  __/ (_| | (_| |  __/ |    | |\  | (_| |\ V /
+ // |_| |_|\___|\__,_|\__,_|\___|_|    |_| \_|\__,_| \_/
+}
         <div className="login-signup">
-
         {
           username ?
           <div className="welcome">
           <p className="alert alert-success">Welcome {username}</p>
-          <Link to='/my_output'><button className="btn btn-info" onClick={getUserInfo}>{username}'s Outputs</button></Link>
+          <Link to='/my_output'><button className="btn btn-info" onClick={getUserInfo}>My Outputs</button></Link>
           </div>
           :
           <div className="user-forms">
@@ -83,13 +85,27 @@ function App() {
         }
         <div className="sun-logo"></div>
         </div>
+
+ {//      _     _      _
+ //  ___(_) __| | ___| |__   __ _ _ __   _ __   __ ___   __
+ // / __| |/ _` |/ _ \ '_ \ / _` | '__| | '_ \ / _` \ \ / /
+ // \__ \ | (_| |  __/ |_) | (_| | |    | | | | (_| |\ V /
+ // |___/_|\__,_|\___|_.__/ \__,_|_|    |_| |_|\__,_| \_/
+}
+
         <div className="d-flex">
         <header>
               <Link to='/'><div className="link">Home</div></Link>
               <Link to='/system_output'><div className="link2">System Yield</div></Link>
               <Link to='/e_use_calc'><div className="link">Energy Use Calc</div></Link>
         </header>
-
+{
+ // __     ___
+ // \ \   / (_) _____      _____
+ //  \ \ / /| |/ _ \ \ /\ / / __|
+ //   \ V / | |  __/\ V  V /\__ \
+ //    \_/  |_|\___| \_/\_/ |___/
+}
           <div className='components'>
           <Route exact path='/sign_up' component={() => (
             <NewUser
@@ -104,6 +120,7 @@ function App() {
               updateToken={updateToken}
               updateUserId={updateUserId}
               welcomeUser={welcomeUser}
+              getUserInfo={getUserInfo}
             />
           )} />
           <Route exact path='/' component={Home} />

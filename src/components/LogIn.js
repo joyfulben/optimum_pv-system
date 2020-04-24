@@ -21,6 +21,7 @@ function LogIn(props) {
       props.updateToken(response.data.token)
       props.welcomeUser(response.data.user.username)
       props.updateUserId(response.data.user.id)
+      props.getUserInfo()
       history.push('/my_output')
     }
     return
@@ -34,6 +35,7 @@ function LogIn(props) {
 
     return (
       <div className="login">
+        <h3>Log In Here</h3>
         <form className="login-form" onSubmit={handleSubmit}>
           <label>
             Username

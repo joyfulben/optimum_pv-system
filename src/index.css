@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
 }
+h2 {
+  margin: auto;
+}
+h2 img {
+  height: 35px;
+}
 /* sun logo rotation animation */
 @keyframes rotation {
   from {
@@ -35,6 +41,7 @@
 }
 .welcome {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -50,7 +57,11 @@
   width: 120px;
   text-align: center;
 }
-.login-form {
+.login h3 {
+  margin: 0 0 20px 125px;
+
+}
+.login-form, .signup-form{
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -61,11 +72,11 @@
   width: 300px;
   color: rgb(7, 73, 9);
 }
-.login-form button {
+.login-form button, .signup-form button {
   width: 150px;
   margin: 10px auto;
 }
-.login-form input {
+.login-form input, .signup-form input {
   background-color: rgb(255, 253, 15);
 }
 .log-in-btn {
@@ -94,7 +105,6 @@ header div {
 header div:hover {
   background-color: rgb(232, 212, 29);
   color: rgb(84, 61, 1);
-
 }
 header a:hover {
   text-decoration: none;
@@ -129,7 +139,6 @@ header a:hover {
 .sys-cap {
   display: flex;
   justify-content: center;
-
 }
 .sys-cap input {
   width: 60px;
@@ -163,7 +172,6 @@ header a:hover {
   padding: 5px;
   border: 2px solid silver;
   border-radius: 2px;
-
 }
 .output-tables {
   display: flex;
@@ -197,8 +205,6 @@ tr td {
 .delete-btn {
   margin: 5px 20px;
 }
-
-
 .ecc-total {
   display: flex;
   justify-content: space-around;
